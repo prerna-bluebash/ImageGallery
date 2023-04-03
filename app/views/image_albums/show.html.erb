@@ -1,7 +1,5 @@
 <h1 class = "text-danger"><%= @image_album.title %></h1>
-<p class="border-bottom border-dark"><%= @image_album.description %></p>
-<%= image_tag '/app/assets/images/photos/bg_img.jpg'%>
-
+<p class="border-bottom border-dark text-dark"><%= @image_album.description %></p>
 <div class="row">
 <% @image_album.images.each do |image| %>
  <div class="card col-sm-3 mb-2  ">
