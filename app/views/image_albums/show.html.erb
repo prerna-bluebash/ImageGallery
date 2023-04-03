@@ -18,7 +18,7 @@
 
 </div>
 
-<% if @currentuser == @user%>
+<% if @currentuser == @user %>
 <div class="row mt-3 mb-2 border border-dark p-2">
 <div class="col-sm">
 
@@ -34,9 +34,9 @@ Add Images <br>
 </div>
 
 <div class = "col-sm ms-auto text-end">
-<%= button_to "Edit Album", edit_image_album_path, class: "btn btn-outline-success btn-sm" %><br>
+<%= link_to "Edit Album", edit_image_album_path, class: "btn btn-outline-success btn-sm mb-2" %><br>
 
-<%= button_to "Delete Album", image_album_path(@image_album), data: {
+<%= link_to "Delete Album", image_album_path(@image_album), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   }, class: "btn btn-outline-danger btn-sm" %>
