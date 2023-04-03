@@ -1,0 +1,37 @@
+<%=form_with model: image_album do |form|
+%>
+<div>
+<%= form.label :title, class: "text-success" %><br>
+<%= form.text_field :title %>
+</div>
+
+<div>
+<%= form.label :description, class: "text-success" %><br>
+<%= form.text_area :description %>
+</div>
+
+<div>
+<%= form.label :thumbnail, class: "text-success" %><br>
+<%= form.file_field :thumbnail, accept:'image/*' %>
+</div>
+
+<div>
+<%= form.label :images, class: "text-success" %><br>
+<%= form.file_field :images, multiple: true, accept:'image/*' %>
+</div>
+
+<div>
+<%= form.label :publish, class: "text-success" %>
+<%= form.check_box :published %>
+</div>
+
+<div>
+<%= form.label :tags, class: "text-success" %><small class="text-primary"> (Add comma separated values)</small> <br>
+<%= form.text_area :all_tags %>
+</div>
+
+ <div>
+    <%= form.submit  class: "btn btn-outline-primary" %>
+  </div>
+
+<%end%>

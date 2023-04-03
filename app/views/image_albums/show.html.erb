@@ -1,0 +1,42 @@
+<h1 class = "text-danger"><%= @image_album.title %></h1>
+<p class="border-bottom border-dark"><%= @image_album.description %></p>
+<%= image_tag '/app/assets/images/photos/bg_img.jpg'%>
+
+<div class="row">
+<% @image_album.images.each do |image| %>
+ <div class="card col-sm-3 mb-2  ">
+  <%=image_tag image, class: "p-2  h-75 w-100 "%>
+  
+  <div class="card-body text-end">
+    <p class="card-title "><%= link_to "Delete", purge_image_image_album_path(@image_album, image_id: image.id), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %> </p>
+  </div>
+  </div>
+<%end%><br>
+
+</div>
+
+
+<div class="row mt-3 mb-2">
+<div class="col-sm">
+<%= form_with model: @image_album do |form|
+%>
+Add Images <br>
+<%= form.file_field :images, multiple: true %>
+ <%= form.submit :Add%>
+<% end %>
+</div>
+
+<div class = "col-sm ms-auto text-end">
+<%= link_to "Edit Album", edit_image_album_path %><br>
+
+<%= link_to "Delete Album", image_album_path(@image_album), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+</div>
+</div>
+
+
