@@ -8,7 +8,8 @@ class ImageAlbumsController < ApplicationController
 
   def show
     @image_album = ImageAlbum.find(params[:id])
-
+    @user = (@image_album.user_id).to_i
+    @currentuser = (current_user.id).to_i
   end
 
   def new
@@ -62,6 +63,8 @@ class ImageAlbumsController < ApplicationController
     @image_album = current_user.image_albums.find(params[:id])
     @image = @image_album.images.find(params[:image_id])
   end
+
+ 
 
   private 
   def image_album_params

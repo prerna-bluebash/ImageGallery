@@ -1,5 +1,11 @@
-<h1>Albums</h1>
-<%=link_to "Create new Ablum", new_image_album_path%>
+<div class="row text-end mb-3">
+<div class="col-sm text-start">
+<h1>My Albums</h1>
+</div>
+<div class="col-sm">
+<%=button_to "Create new Ablum", new_image_album_path, class: "btn btn-success"%>
+</div>
+</div>
 <div class="row mb-3">
 <% @image_albums.each do |image_album|%>
 
