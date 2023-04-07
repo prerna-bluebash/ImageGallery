@@ -17,7 +17,6 @@ class ImageAlbumsController < ApplicationController
   end
 
   def create 
-    
     @image_album = current_user.image_albums.new(image_album_params)
     if @image_album.save
       
@@ -32,8 +31,7 @@ class ImageAlbumsController < ApplicationController
       @image_album = current_user.image_albums.find(params[:id])
       rescue
        @response='You cannot Edit this Album!'
-      end
-      
+      end 
   end
 
   def update
@@ -49,7 +47,6 @@ class ImageAlbumsController < ApplicationController
     if @image_album.destroy
       redirect_to root_path
     end
-   
   end
   
   def purge_image
@@ -64,12 +61,9 @@ class ImageAlbumsController < ApplicationController
     @image = @image_album.images.find(params[:image_id])
   end
 
- 
-
   private 
   def image_album_params
     params.require(:image_album).permit(:title, :description, :published, :thumbnail, :all_tags, images: [])
   end
-
 
 end
