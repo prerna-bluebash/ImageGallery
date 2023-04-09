@@ -1,22 +1,27 @@
-<div class="row text-end mb-3">
-<div class="col-sm text-start">
-<h1 class="title text-dark mb-2">My Albums</h1>
+<div class="row text-center mb-3">
+<h1 class="text-danger mb-2">My Albums</h1>
 </div>
-<div class="col-sm">
-<%=link_to "Create new Ablum", new_image_album_path, class: "btn btn-success"%>
+<div class="row justify-content-center">
+<div class="col-sm text-center">
+<h3 class = "text-primary">Create New Album:</h3>
+</div>
+<div class="col-sm text-center">
+<%= link_to "Create new Ablum", new_image_album_path, class: "btn btn-primary" %>
 </div>
 </div>
-<div class="row mb-3">
-<% @image_albums.each do |image_album|%>
 
- <div class="card col-sm-4 mb-2">
-  <%=image_tag image_album.thumbnail, class: "p-2 img-fluid h-75 w-100"%>
+
+<div class="row justify-content-center ">
+<% @image_albums.each do |image_album| %>
+
+ <div class="card col-md-3 m-1">
+  <%= image_tag image_album.thumbnail, class: "p-2 img-fluid h-75 w-100"%>
   <div class="card-body text-center">
-    <h5 class="card-title "> <%= link_to image_album.title, image_album, class: "text-danger text-decoration-none"%></h5>
-     <small class="card-text"><%= image_album.all_tags%></small><br>
-    <%= link_to "View Album", image_album, class: 'btn btn-outline-primary'%>
+    <h5 class="card-title "> <%= link_to image_album.title, image_album, class: "text-danger text-decoration-none" %></h5>
+     <small class="card-text"><%= image_album.all_tags %></small><br>
+    <%= link_to "View Album", image_album, class: "btn btn-outline-primary btn-sm" %>
   </div>
  </div>  
 
-<%end%>
+<% end %>
 </div>

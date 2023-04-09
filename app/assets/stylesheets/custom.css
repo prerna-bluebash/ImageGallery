@@ -5,6 +5,6 @@
     background-attachment: fixed;
     background-position: center;
 }
-.title{
-    color: red;
+.trans_bg{
+    background-color: rgba(255, 255, 255, 0.7);
 }
