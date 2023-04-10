@@ -1,9 +1,8 @@
 class ImageAlbumsController < ApplicationController
-
   before_action :authenticate_user!
+
   def index
     @image_albums = current_user.image_albums
-
   end
 
   def show
@@ -19,7 +18,6 @@ class ImageAlbumsController < ApplicationController
   def create 
     @image_album = current_user.image_albums.new(image_album_params)
     if @image_album.save
-      
       redirect_to @image_album
     else
       render :new, status: :unprocessable_entity
@@ -38,8 +36,7 @@ class ImageAlbumsController < ApplicationController
     @image_album = ImageAlbum.find(params[:id])
     if @image_album.update(image_album_params)
       redirect_to @image_album
-    end
-    
+    end    
   end
 
   def destroy
@@ -62,8 +59,8 @@ class ImageAlbumsController < ApplicationController
   end
 
   private 
+
   def image_album_params
     params.require(:image_album).permit(:title, :description, :published, :thumbnail, :all_tags, images: [])
   end
-
 end

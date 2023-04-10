@@ -24,8 +24,7 @@
     <div class="row mt-3 mb-2 border-top border-dark p-2 trans_bg">
       <div class="col-sm">
 
-        <%= form_with model: @image_album do |form|
-%>
+        <%= form_with model: @image_album do |form|%>
         Add Images <br>
 
         <%= form.file_field :images, multiple: true, accept: 'image/*', class: "btn btn-sm" %>
